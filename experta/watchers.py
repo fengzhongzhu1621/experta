@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Watchers are loggers that log detailed information on
 CLIPS, disabled by default and that can be enabled by
@@ -13,6 +14,8 @@ import logging
 __all__ = ['watch', 'unwatch']
 
 logging.basicConfig()
+
+# logging默认的级别是WARNING，只有高于WARNING的log操作才会被执行。
 
 
 def define_watcher(name):

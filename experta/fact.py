@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from itertools import chain
 from functools import lru_cache
 import abc
@@ -127,6 +128,7 @@ class Fact(OperableCE, Bindable, dict, metaclass=Validable):
 
     @staticmethod
     def is_special(key):
+        """判断key是否是特殊属性 ."""
         return (isinstance(key, str)
                 and key.startswith('__')
                 and key.endswith('__'))

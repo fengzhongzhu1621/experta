@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+
+
 class Agenda:
     """
+    议程管理模式匹配器挑选出来的规则的执行次序
 
     Collection of activations that handles its execution state.
 

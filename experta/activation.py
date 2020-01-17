@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Activations represent rules that matches against a specific factlist.
 
@@ -8,10 +9,12 @@ from functools import total_ordering
 @total_ordering
 class Activation:
     """
-    Activation object
+    Activation object 满足事实或目标的规则，需要放到Agenda中
     """
     def __init__(self, rule, facts, context=None):
+        # 定义的规则
         self.rule = rule
+        # 规则匹配的Facts
         self.facts = set(facts)
         self.key = None
         if context is None:

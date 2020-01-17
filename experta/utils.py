@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from functools import singledispatch
 import collections.abc
 
@@ -13,6 +15,7 @@ class frozenlist(tuple):
 
 @singledispatch
 def freeze(obj):
+    """创建一个对象冻结泛函数 ."""
     if isinstance(obj, collections.abc.Hashable):
         return obj
     else:
@@ -42,6 +45,7 @@ def freeze_set(obj):
 
 @singledispatch
 def unfreeze(obj):
+    """创建一个对象解冻泛函数 ."""
     return obj
 
 
@@ -64,4 +68,12 @@ def unfreeze_frozenset(obj):
 
 
 def anyof(*what):
+    """ IN pattern .
+
+    Examples:
+        y: 表示对象的属性值
+        what：表示需要匹配的值
+        Player(x=P(lambda a: a in what))等价于
+        Player(x=anyof(what))
+    """
     return P(lambda y: y in what)

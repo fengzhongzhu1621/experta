@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 ``fact-list`` implementation from CLIPS.
 
@@ -42,6 +43,7 @@ class FactList(OrderedDict):
 
     @staticmethod
     def _get_fact_id(fact):
+        """获得fact的唯一标识 ."""
         return frozenset([fact.__class__]
                          + [(k, v)
                             for k, v in fact.items()
@@ -67,11 +69,15 @@ class FactList(OrderedDict):
             raise ValueError('The fact must descend the Fact class.')
 
         # Validate fact, will raise on validation error.
+        # 属性验证
         fact.validate()
 
+        # 获得fact的唯一标识
         fact_id = self._get_fact_id(fact)
 
+        # 默认相同的Fact对象不重复加入到FactList中
         if self.duplication or fact_id not in self.reference_counter:
+            # 设置fact在字典中的索引
             # Assign the ID to the fact
             idx = self.last_index
             fact.__factid__ = idx
