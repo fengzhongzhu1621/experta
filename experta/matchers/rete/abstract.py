@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Abstract base classes for the RETE implementation."""
 import abc
 

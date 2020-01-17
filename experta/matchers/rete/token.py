@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Token object and related objects needed by the RETE algorithm."""
 
 from collections import namedtuple
